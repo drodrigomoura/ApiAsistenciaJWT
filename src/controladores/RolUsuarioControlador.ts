@@ -1,22 +1,19 @@
 import { JsonController, Param, Body, Get, Post, Put, Delete, UseBefore } from "routing-controllers";
 import { getRepository } from "typeorm";
-import { LoginMiddlewar } from "../middlewares/LoginMiddlewar";
-import { Usuario } from "../entity/Usuario";
 import { RolUsuario } from "../entity/RolUsuario";
+import { VerificarTokenMiddleWar } from "../middlewares/VerificarTokenMiddlewar";
 
 @JsonController()
-// @UseBefore(LoginMiddlewar)
+@UseBefore(VerificarTokenMiddleWar)
 export class RolUsuarioControlador {
 
     private rolRepositorio = getRepository(RolUsuario);
 
     @Get("/rol")
-    //@UseBefore(PruebaMiddlewar)
+
     getAll() {
-        //setTimeout(a);
         return this.rolRepositorio.find();
     }
-
 
     @Get("/rol/:id")
     getOne(@Param("id") id: number) {

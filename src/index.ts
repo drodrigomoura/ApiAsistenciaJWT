@@ -6,8 +6,6 @@ import * as logger from 'morgan';
 import * as cors from 'cors';
 import { useExpressServer } from "routing-controllers";
 
-import { LoginMiddlewar } from "./middlewares/LoginMiddlewar";
-
 // creates express app, registers all controller routes and returns you express app instance
 let express = require("express"); // or you can import it if you have installed typings
 let app = express();
@@ -19,7 +17,6 @@ useExpressServer(app, {
     cors: true,
     controllers: [__dirname + "/controladores/*.ts"],
     middlewares: [__dirname + "/middlewares/*.ts"],
-    // controllers: [UsuarioControlador, UsuarioNivelControlador, TutorControlador, PersonaControlador, RegistroControlador]
 });
 
 createConnection();
