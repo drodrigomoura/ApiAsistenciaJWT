@@ -7,5 +7,4 @@ export class RolUsuario extends Identidad {
     @Column()
     descripcion: string;
 
-
 }
