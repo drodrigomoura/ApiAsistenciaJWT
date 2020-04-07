@@ -1,6 +1,6 @@
 # Awesome Project Build with TypeORM
 
-Pasos que funcione:
+Pasos para que funcione:
 1. Instalar MSYQL.
 2. Crear una base de datos llamada 'asistencia'.
 3. Crear un rol de usuario.
