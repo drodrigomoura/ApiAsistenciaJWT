@@ -17,6 +17,8 @@ useExpressServer(app, {
     cors: true,
     controllers: [__dirname + "/controladores/*.ts"],
     middlewares: [__dirname + "/middlewares/*.ts"],
+    routePrefix: '/api'
+
 });
 
 createConnection();
