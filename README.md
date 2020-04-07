@@ -16,7 +16,7 @@ Steps to run this project:
 **
 Esta api corre en el puerto 50000.
 
-El enpoint '/login' sirve para realizar el proceso de logueo y asignar el token al usuario ejm: http://localhost:50000/login. Se utiliza metodo POST
+El enpoint 'api/login' sirve para realizar el proceso de logueo y asignar el token al usuario ejm: http://localhost:50000/api/login. Se utiliza metodo POST
 
 El token esta configurado para que expire en 1hs.
 
