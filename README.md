@@ -13,4 +13,26 @@ Steps to run this project:
 3. Run `npm start` command
 # ApiAsistencia
 
+**
+Esta api corre en el puerto 50000.
+
+El enpoint '/login' sirve para realizar el proceso de logueo y asignar el token al usuario ejm: http://localhost:50000/login. Se utiliza metodo POST
+
+El token esta configurado para que expire en 1hs.
+
+Ejemplo de Token convertido a json 
+{
+  usuarioId: 1,
+  nombreUsuario: 'u1',
+  rol: 'Admin',
+  iat: 1586227943,
+  exp: 1586231543
+}
+Devuelve usuarioId, nombreDeUsuario, Rol, creacion y expiracion
+
+
+
+
+
+
 
