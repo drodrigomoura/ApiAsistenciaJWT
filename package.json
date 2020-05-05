@@ -21,7 +21,7 @@
       "typeorm": "0.2.19"
    },
    "scripts": {
-      "start": "ts-node src/index.ts",
+      "start": "ts-node src/index.ts ",
       "prueba": "ts-node src/prueba.ts"
    }
 }

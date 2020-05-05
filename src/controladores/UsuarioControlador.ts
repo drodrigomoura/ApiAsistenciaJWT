@@ -10,9 +10,8 @@ export class UsuarioControlador {
     private usuarioRepository = getRepository(Usuario);
 
     @Get("/usuarios")
-
     getAll() {
-        return this.usuarioRepository.find();
+        return this.usuarioRepository.find({ relations: ['rol'] });
     }
 
     @Get("/prueba")
@@ -38,7 +37,7 @@ export class UsuarioControlador {
 
     @Get("/usuarios/:id")
     getOne(@Param("id") id: number) {
-        return this.usuarioRepository.findOne(id);
+        return this.usuarioRepository.findOne(id, { relations: ['rol'] });
     }
 
     @Post("/usuarios")
@@ -56,5 +55,4 @@ export class UsuarioControlador {
         let usuarioToRemove = await this.usuarioRepository.findOne(id);
         return this.usuarioRepository.remove(usuarioToRemove);
     }
-
 }

@@ -7,16 +7,27 @@ import { TokenControlador } from "./personalizados/TokenControlador";
 export class LoginControlador {
 
     private controlador: Controlador = new Controlador();
+    retorno;
 
     @Post("/login")
     async post(@Body() usuario: Usuario) {
 
         let usuario1 = await this.controlador.devolverUsuarioPorUsuarioYClave(usuario.nombreUsuario, usuario.clave).catch((err: any) => {
-            throw new Error("Usuario no encontrado " + err.message);
+            throw {
+                error: new Error(),
+                mensaje: 'Usuario no encontrado'
+            };
         });
         const token = TokenControlador.asignartoken(usuario1);
 
-        return token;
+        this.retorno = {
+            'idUsuario': usuario1.id,
+            'rol': usuario1.rol.descripcion,
+            'dni': usuario1.dni,
+            'token': token
+        };
+
+        return this.retorno;
 
     }
 

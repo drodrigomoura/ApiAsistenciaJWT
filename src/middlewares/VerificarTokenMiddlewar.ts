@@ -4,9 +4,13 @@ import { TokenControlador } from "../controladores/personalizados/TokenControlad
 export class VerificarTokenMiddleWar {
 
     use(req: Request, res: Response, next: NextFunction) {
-        
-        const token = <string>req.headers["auth"];
 
+        //console.log(req.headers);
+        const token = <string>req.headers['authorization'];
+        console.log(token);
+
+        // jwt.decode(token)[req.headers["Authorization"]] as string;
+        // console.log(token);
         TokenControlador.controlarToken(token, res);
 
         next();

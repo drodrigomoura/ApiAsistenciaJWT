@@ -17,7 +17,7 @@ export class TokenControlador {
         const token = jwt.sign(
             { usuarioId: usuario.id, nombreUsuario: usuario.nombreUsuario, rol: usuario.rol.descripcion },
             config.jwtSecret,
-            { expiresIn: "1h" }
+            { expiresIn: '24h' }
         );
         return token;
     }
