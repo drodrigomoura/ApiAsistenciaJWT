@@ -15,7 +15,7 @@ app.use(logger('dev'));
 // // app.use() // you can configure it the way you want
 useExpressServer(app, {
     cors: true,
-    controllers: [__dirname + "/controladores/*.ts"],
+    controllers: [__dirname + "/controladores/**/*.ts"],
     middlewares: [__dirname + "/middlewares/*.ts"],
     routePrefix: '/api'
 
