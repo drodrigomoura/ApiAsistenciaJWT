@@ -1,11 +1,14 @@
-import { getRepository, In } from "typeorm";
+import { getRepository, In, BeforeInsert } from "typeorm";
 import { Usuario } from "../../entity/Usuario";
 import { Asistencia } from "../../entity/asistencia/Asistencia";
 import { Marcada } from "../../entity/marcada/Marcada";
+import { VerificarTokenMiddleWar } from "../../middlewares/VerificarTokenMiddlewar";
+import { UseBefore, JsonController } from "routing-controllers";
 
 /**
  * Sirve para realizar diferentes consultas a la base de dato (Utilzando el patron Controller)
  */
+
 export class Controlador {
 
     private usuarioRepository = getRepository(Usuario);
@@ -43,14 +46,14 @@ export class Controlador {
         return asistencia;
     }
 
-
     async controlarYActualizarMarcadasDeAsistencia(asistencia: Asistencia) {
         try {
             let asist = await this.hayAsistenciaHoy(asistencia.fecha, asistencia.usuario.id);
             let marcada = asistencia.marcadas.pop();
             asist.marcadas.push(marcada);
-            return this.asistenciaRepositorio.save(asist);
+            return asist;/* this.asistenciaRepositorio.save(asist); */
         } catch (error) {
+            //return null;
             throw new Error('No hay asistencia en la fecha');
         }
     }
