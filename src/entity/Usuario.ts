@@ -1,4 +1,4 @@
-import { Entity, Column, OneToOne, JoinColumn, OneToMany } from "typeorm";
+import { Entity, Column, OneToMany, ManyToOne } from "typeorm";
 import { Persona } from "./Persona";
 import { Allow } from "class-validator";
 import { RolUsuario } from "./RolUsuario";
@@ -17,9 +17,13 @@ export class Usuario extends Persona {
     @Column()
     clave: string;
 
-    @OneToOne(type => RolUsuario, { cascade: true })
-    @JoinColumn()
-    rol: RolUsuario;
+    //@OneToOne(type => RolUsuario, { cascade: true })
+    //@JoinColumn()
+    //rol: RolUsuario;
+    //Debe ser Uno a Muchos
+    
+    @ManyToOne(type => RolUsuario, rolUsuario => rolUsuario.usuarios)
+    rolUsuario: RolUsuario;
 
     @OneToMany(type => Asistencia, asistencia => asistencia.usuario)
     asistencias: Asistencia[];
