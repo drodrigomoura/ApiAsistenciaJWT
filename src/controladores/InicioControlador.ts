@@ -1,6 +1,5 @@
 import { JsonController, Get } from "routing-controllers";
 
-
 @JsonController()
 export class InicioControlador {
 
