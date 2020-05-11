@@ -9,7 +9,7 @@ export class Usuario extends Persona {
 
     @Allow()
     @Column("varchar", {
-        length: 8,
+        length: 45,
         unique: true
     })
     nombreUsuario: string;
