@@ -23,7 +23,7 @@ export class Usuario extends Persona {
     //Debe ser Uno a Muchos
     
     @ManyToOne(type => RolUsuario, rolUsuario => rolUsuario.usuarios)
-    rolUsuario: RolUsuario;
+    rol: RolUsuario;
 
     @OneToMany(type => Asistencia, asistencia => asistencia.usuario)
     asistencias: Asistencia[];
