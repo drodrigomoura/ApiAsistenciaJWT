@@ -15,7 +15,7 @@ export class Institucion extends Identidad {
     @Column()
     cue: string
 
-    @Column()
+    @Column({ nullable: true })
     geolocalizacion: string
 
     @Column(type => Direccion)

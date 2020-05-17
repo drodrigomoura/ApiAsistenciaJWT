@@ -2,10 +2,10 @@ import { Column } from "typeorm";
 
 export class Direccion {
 
-    @Column()
+    @Column({ nullable: true })
     calle: string;
 
-    @Column()
+    @Column({ nullable: true })
     altura: string;
 
 }

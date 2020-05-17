@@ -26,12 +26,11 @@ export class AsistenciaControlador {
     async post(@Body() asistencia: Asistencia) {
         try {
             let retorno = await this.controlador.controlarYActualizarMarcadasDeAsistencia(asistencia);
-            return retorno;
+            return this.asistenciaRepositorio.save(retorno);
         } catch (error) {
-            //Error= no hay asistencia creada en la fecha
-            //Persisto la asistencia enviada
             return this.asistenciaRepositorio.save(asistencia);
         }
+
     }
 
     @Put("/asistencia/:id")
